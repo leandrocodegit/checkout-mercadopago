@@ -1,0 +1,37 @@
+server:
+  port: 9098
+mercadopago:
+  access:
+    token: TEST-3070472608701511-110619-46cc8dd83c8394c236b931dc6ce796f8-658800087
+
+spring:
+  rabbitmq:
+    host: 172.19.0.2
+    #host: localhost
+  mvc.path match:
+    matching-strategy: ant-path-matcher
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.200:3306/pagamento?createDatabaseIfNotExist=True
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  flyway:
+    enable: false
+    clean-disabled: true
+integration:
+  ml:
+    url: https://api.mercadopago.com/v1/
+  pedido:
+    url: http://172.19.0.7:9097/api/v1/pedido
+    #url: localhost:9097/api/v1/pedido
+feign:
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+    alphanumeric-ids:
+      enabled: true
