@@ -6,8 +6,8 @@ mercadopago:
 
 spring:
   rabbitmq:
-    host: 172.19.0.2
-    #host: localhost
+    #host: 172.19.0.2
+    host: localhost
   mvc.path match:
     matching-strategy: ant-path-matcher
   datasource:
